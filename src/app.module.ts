@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
-import { PrismaModule } from './configurations/prisma/prisma.module';
+import { PrismaModule } from './apps/configurations/prisma/prisma.module';
 import { VehiculosModule } from './apps/vehiculos/vehiculos.module';
+import { UserModule } from './apps/user/user.module';
+import { KafkaModule } from './apps/configurations/kafka/kafka.module';
 
 @Module({
   imports: [
@@ -12,8 +13,10 @@ import { VehiculosModule } from './apps/vehiculos/vehiculos.module';
     }),
     PrismaModule,
     VehiculosModule,
+    UserModule,
+    KafkaModule,
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [AppService],
 })
 export class AppModule {}

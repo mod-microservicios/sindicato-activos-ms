@@ -19,7 +19,7 @@ export class VehiculosController {
   }
 
   @MessagePattern('findOneVehiculo')
-  findOne(@Payload() id: number) {
+  findOne(@Payload() id: string) {
     return this.vehiculosService.findOne(id);
   }
 
@@ -29,7 +29,7 @@ export class VehiculosController {
   }
 
   @MessagePattern('removeVehiculo')
-  remove(@Payload() id: number) {
+  remove(@Payload() id: string) {
     return this.vehiculosService.remove(id);
   }
 }
